@@ -1,0 +1,33 @@
+plugins {
+    alias(libs.plugins.gradle.plugin.publish)
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+
+//    withJavadocJar()
+    withSourcesJar()
+}
+
+group = "com.aws"
+version = "0.0.1"
+
+
+gradlePlugin {
+    plugins {
+        create("track-me-plugin") {
+            id = "${group}.track"
+            implementationClass = "com.muaun.trackme.TrackPlugin"
+            displayName = "Track Me Plugin"
+            description = "Track Me Plugin"
+            tags.set(Arrays.asList("agp"))
+        }
+    }
+}
+
+dependencies {
+    compileOnly(libs.android.gradle)
+    compileOnly(libs.android.gradle.api)
+    compileOnly(libs.ow2.asm.commons)
+}
