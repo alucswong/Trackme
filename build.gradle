@@ -10,11 +10,13 @@ java {
     withSourcesJar()
 }
 
-group = "com.aws"
+group = "io.github.alucswong"
 version = "0.0.1"
 
 
 gradlePlugin {
+    website = "https://github.com/alucswong/Trackme"
+    vcsUrl = "https://github.com/alucswong/Trackme"
     plugins {
         create("track-me-plugin") {
             id = "${group}.track"
